@@ -23,7 +23,7 @@ docker run -d --rm -it --shm-size=50g -p 8080:8080 -p 8081:8081 --name torchserv
 
 
 modelName="vitxxsmall"
-task="image-classification"  
+task="sentiment-analysis"  
 
 #should be either "pt" (for PyTorch) or "tf" (for Tensorflow) and the .pt or .tf file should be present in `HF-models/$modelName` folder
 framework="pt"       
