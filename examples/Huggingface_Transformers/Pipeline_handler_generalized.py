@@ -61,9 +61,11 @@ class HFPipelineHandler(BaseHandler):
 
         #Function to read .txt file and convert it into a string
         def preprocess_sentiment_analysis_single(self, file):
-            with open(file, 'r') as file:
-                readfile = file.read().replace('\n', '')
-            return readfile
+            text = file.get("data") or file.get("body")
+            # Decode text if not a str but bytes or bytearray
+            if isinstance(text, (bytes, bytearray)):
+                text = text.decode("utf-8")
+            return text
 
     class HFPipelinePostprocessFactory:
         '''
