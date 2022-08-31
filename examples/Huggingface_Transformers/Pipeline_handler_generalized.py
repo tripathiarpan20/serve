@@ -64,7 +64,7 @@ class HFPipelineHandler(BaseHandler):
             text = file.get("data") or file.get("body")
             # Decode text if not a str but bytes or bytearray
             if isinstance(text, (bytes, bytearray)):
-                text = text.decode("utf-8")
+                text = text.decode("utf-8", errors='ignore')
             return text
 
     class HFPipelinePostprocessFactory:
